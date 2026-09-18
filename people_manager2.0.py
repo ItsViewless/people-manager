@@ -103,4 +103,4 @@ def show_statistics():
     
 menu()
 
-print("People Manager 2.0")
+print("People Manager 2.0 - Git")
