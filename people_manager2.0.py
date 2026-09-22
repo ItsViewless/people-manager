@@ -80,6 +80,7 @@ def find_person():
     for person in people:
         if person["name"] == name:
             print(person["name"], "-", person["age"])
+            print("Person found!")
             return
             
     print("Person not found!")
