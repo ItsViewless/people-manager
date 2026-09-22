@@ -34,6 +34,18 @@ def show_people():
     for person in people:
         print(person["name"], "-", person["age"])
         
+def find_by_age():
+    age = int(input("Enter age to find: "))
+    
+    found = False
+    for person in people:
+        if person["age"] == age:
+            print(person["name"], "-", person["age"])
+            found = True
+            
+    if not found:
+        print("No people found with that age.")
+
         
 def menu():
     while True:
@@ -42,10 +54,12 @@ def menu():
         print("3 - Delete person")
         print("4 - Find person")
         print("5 - Statistics")
+        print("6 - Find by age")
         print("6 - Show adults")
         print("q - Quit")
         
         choice = input("Choose: ")
+
         if choice == "1":
             add_person()
         elif choice == "2":
@@ -57,7 +71,7 @@ def menu():
         elif choice == "5":
             show_statistics()
         elif choice == "6":
-            show_adults()
+            find_by_age()
         elif choice == "q":
             break
         else:
@@ -105,10 +119,6 @@ def show_statistics():
     else:
         print("No people yet.")
         
-def show_adults():
-    for person in people:
-        if person["age"] >= 18:
-            print(person["name"], "-", person["age"])
 
 menu()
 
