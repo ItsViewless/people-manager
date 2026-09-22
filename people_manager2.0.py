@@ -1,5 +1,6 @@
 import json
 
+
 def load_people():
     try:
         with open("people.json", "r") as file:
@@ -92,6 +93,7 @@ def show_statistics():
         total_age = total_age + person["age"]
         
     print("Total people:", count)
+    print("Total age:", total_age)
     
     if count > 0:
         average_age = total_age / count
