@@ -42,6 +42,7 @@ def menu():
         print("3 - Delete person")
         print("4 - Find person")
         print("5 - Statistics")
+        print("6 - Show adults")
         print("q - Quit")
         
         choice = input("Choose: ")
@@ -55,6 +56,8 @@ def menu():
             find_person()
         elif choice == "5":
             show_statistics()
+        elif choice == "6":
+            show_adults()
         elif choice == "q":
             break
         else:
@@ -101,8 +104,11 @@ def show_statistics():
     else:
         print("No people yet.")
         
+def show_adults():
+    for person in people:
+        if person["age"] >= 18:
+            print(person["name"], "-", person["age"])
 
-    
 menu()
 
 print("People Manager 2.0 - Git")
