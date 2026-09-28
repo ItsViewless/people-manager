@@ -85,6 +85,31 @@ def sort_by_age_desc():
     for person in people:
         print(person["name"], "-", person["age"])
 
+def age_statistics():
+    total_age = 0
+    youngest = None
+    oldest = None
+    adults = 0
+
+    for person in people:
+        total_age = total_age + person["age"]
+
+        if person["age"] >= 18:
+            adults = adults + 1
+
+        if youngest is None or person["age"] < youngest["age"]:
+            youngest = person
+        
+        if oldest is None or person["age"] > oldest["age"]:
+            oldest = person
+
+    average_age = total_age / len(people)
+
+    print("Average age:", round(average_age, 2))
+    print("Youngest:", youngest["name"], "-", youngest["age"])
+    print("Oldest:", oldest["name"], "-", oldest["age"])
+    print("Adults:", adults)
+
 def menu():
     while True:
         print("1 - Add person")
@@ -97,6 +122,7 @@ def menu():
         print("8 - Find by age range")
         print("9 - Sort by age (ascending)")
         print("10 - Sort by age (descending)")
+        print("11 - Age statistics")
         print("q - Quit")
         
         choice = input("Choose: ")
@@ -121,6 +147,8 @@ def menu():
             sort_by_age_asc()
         elif choice == "10":
             sort_by_age_desc()
+        elif choice == "11":
+            age_statistics()
         elif choice == "q":
             break
         else:
