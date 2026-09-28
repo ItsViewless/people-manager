@@ -1,6 +1,7 @@
 [
     {
         "name": "Dmitrii",
-        "age": 25
+        "age": 25,
+        "city": "Batumi"
     }
 ]

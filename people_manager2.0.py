@@ -20,10 +20,12 @@ def save_people():
 def add_person():
     name = input("Enter name: ")
     age = int(input("Enter age: "))
+    city = input("Enter city: ")
     
     person = {
         "name": name,
-        "age": age
+        "age": age,
+        "city": city
     }
     
     people.append(person)
@@ -32,7 +34,19 @@ def add_person():
     
 def show_people():
     for person in people:
-        print(person["name"], "-", person["age"])
+        print(person["name"], "-", person["age"], "-", person["city"])
+
+def find_by_city():
+    city = input("Enter city to find: ")
+    found = False
+
+    for person in people:
+        if person["city"] == city:
+            print(person["name"], "-", person["age"], "-", person["city"])
+            found = True
+
+    if not found:
+        print("No people found in that city.")
         
 def find_by_age():
     age = int(input("Enter age to find: "))
@@ -40,13 +54,13 @@ def find_by_age():
     found = False
     for person in people:
         if person["age"] == age:
-            print(person["name"], "-", person["age"])
+            print(person["name"], "-", person["age"], "-", person["city"])
             found = True
             
     if not found:
         print("No people found with that age.")
 
-        
+
 def menu():
     while True:
         print("1 - Add person")
@@ -55,7 +69,7 @@ def menu():
         print("4 - Find person")
         print("5 - Statistics")
         print("6 - Find by age")
-        print("6 - Show adults")
+        print("7 - Find by city")
         print("q - Quit")
         
         choice = input("Choose: ")
@@ -72,6 +86,8 @@ def menu():
             show_statistics()
         elif choice == "6":
             find_by_age()
+        elif choice == "7":
+            find_by_city()
         elif choice == "q":
             break
         else:
@@ -96,7 +112,7 @@ def find_person():
     
     for person in people:
         if person["name"] == name:
-            print(person["name"], "-", person["age"])
+            print(person["name"], "-", person["age"], "-", person["city"])
             print("Person found!")
             return
             
