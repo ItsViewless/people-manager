@@ -42,7 +42,7 @@ def find_by_city():
 
     for person in people:
         if person["city"] == city:
-            print(person["name"], "-", person["age"], "-", person["city"])
+            print(person["name"], "-", person["city"])
             found = True
 
     if not found:
@@ -54,7 +54,7 @@ def find_by_age():
     found = False
     for person in people:
         if person["age"] == age:
-            print(person["name"], "-", person["age"], "-", person["city"])
+            print(person["name"], "-", person["age"])
             found = True
             
     if not found:
@@ -67,12 +67,23 @@ def find_by_age_range():
     found = False
     for person in people:
         if min_age <= person["age"] <= max_age:
-            print(person["name"], "-", person["age"], "-", person["city"])
+            print(person["name"], "-", person["age"])
             found = True
             
     if not found:
         print("No people found in that age range.")
 
+def sort_by_age_asc():
+    people.sort(key=lambda person: person["age"])
+
+    for person in people:
+        print(person["name"], "-", person["age"])
+
+def sort_by_age_desc():
+    people.sort(key=lambda person: person["age"], reverse=True)
+
+    for person in people:
+        print(person["name"], "-", person["age"])
 
 def menu():
     while True:
@@ -84,6 +95,8 @@ def menu():
         print("6 - Find by age")
         print("7 - Find by city")
         print("8 - Find by age range")
+        print("9 - Sort by age (ascending)")
+        print("10 - Sort by age (descending)")
         print("q - Quit")
         
         choice = input("Choose: ")
@@ -104,6 +117,10 @@ def menu():
             find_by_city()
         elif choice == "8":
             find_by_age_range()
+        elif choice == "9":
+            sort_by_age_asc()
+        elif choice == "10":
+            sort_by_age_desc()
         elif choice == "q":
             break
         else:
