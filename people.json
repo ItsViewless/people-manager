@@ -3,5 +3,15 @@
         "name": "Dmitrii",
         "age": 25,
         "city": "Batumi"
+    },
+    {
+        "name": "Alex",
+        "age": 18,
+        "city": "Tbilisi"
+    },
+    {
+        "name": "John",
+        "age": 30,
+        "city": "Kutaisi"
     }
 ]
