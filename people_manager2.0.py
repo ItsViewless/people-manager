@@ -60,6 +60,19 @@ def find_by_age():
     if not found:
         print("No people found with that age.")
 
+def find_by_age_range():
+    min_age = int(input("Enter minimum age: "))
+    max_age = int(input("Enter maximum age: "))
+    
+    found = False
+    for person in people:
+        if min_age <= person["age"] <= max_age:
+            print(person["name"], "-", person["age"], "-", person["city"])
+            found = True
+            
+    if not found:
+        print("No people found in that age range.")
+
 
 def menu():
     while True:
@@ -70,6 +83,7 @@ def menu():
         print("5 - Statistics")
         print("6 - Find by age")
         print("7 - Find by city")
+        print("8 - Find by age range")
         print("q - Quit")
         
         choice = input("Choose: ")
@@ -88,6 +102,8 @@ def menu():
             find_by_age()
         elif choice == "7":
             find_by_city()
+        elif choice == "8":
+            find_by_age_range()
         elif choice == "q":
             break
         else:
