@@ -110,6 +110,19 @@ def age_statistics():
     print("Oldest:", oldest["name"], "-", oldest["age"])
     print("Adults:", adults)
 
+def find_by_city_and_age():
+    city = input("Enter city to find: ")
+    age = int(input("Enter age to find: "))
+    
+    found = False
+    for person in people:
+        if person["city"] == city and person["age"] >= age:
+            print(person["name"], "-", person["city"], "-", person["age"])
+            found = True
+            
+    if not found:
+        print("No people found with that city and minimum age.")
+
 def menu():
     while True:
         print("1 - Add person")
@@ -123,6 +136,7 @@ def menu():
         print("9 - Sort by age (ascending)")
         print("10 - Sort by age (descending)")
         print("11 - Age statistics")
+        print("12 - Find by city and min. age")
         print("q - Quit")
         
         choice = input("Choose: ")
@@ -149,6 +163,8 @@ def menu():
             sort_by_age_desc()
         elif choice == "11":
             age_statistics()
+        elif choice == "12":
+            find_by_city_and_age()
         elif choice == "q":
             break
         else:
