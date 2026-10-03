@@ -137,6 +137,7 @@ def menu():
         print("10 - Sort by age (descending)")
         print("11 - Age statistics")
         print("12 - Find by city and min. age")
+        print("13 - City statistics")
         print("q - Quit")
         
         choice = input("Choose: ")
@@ -165,6 +166,8 @@ def menu():
             age_statistics()
         elif choice == "12":
             find_by_city_and_age()
+        elif choice == "13":
+            city_statistics()
         elif choice == "q":
             break
         else:
@@ -211,7 +214,18 @@ def show_statistics():
         print("Average age:", average_age)
     else:
         print("No people yet.")
-        
+
+def city_statistics():
+    cities = {}
+
+    for person in people:
+        city = person["city"]
+        if city not in cities:
+            cities[city] = 0
+        cities[city] = cities[city] + 1
+    for city, count in cities.items():
+        print(city, ":", count)
+    
 
 menu()
 
