@@ -138,6 +138,7 @@ def menu():
         print("11 - Age statistics")
         print("12 - Find by city and min. age")
         print("13 - City statistics")
+        print("14 - City average age")
         print("q - Quit")
         
         choice = input("Choose: ")
@@ -168,6 +169,8 @@ def menu():
             find_by_city_and_age()
         elif choice == "13":
             city_statistics()
+        elif choice == "14":
+            city_average_age()
         elif choice == "q":
             break
         else:
@@ -225,8 +228,24 @@ def city_statistics():
         cities[city] = cities[city] + 1
     for city, count in cities.items():
         print(city, ":", count)
-    
 
+def city_average_age():
+    city_ages = {}
+    city_counts = {}
+
+    for person in people:
+        city = person["city"]
+        age = person["age"]
+
+        if city not in city_ages:
+            city_ages[city] = 0
+            city_counts[city] = 0
+        city_ages[city] = city_ages[city] + age
+        city_counts[city] = city_counts[city] + 1
+  
+    for city in city_ages:
+        average_age = city_ages[city] / city_counts[city]
+        print(city, ":", round(average_age, 2))
 menu()
 
 print("People Manager 2.0 - Git")
