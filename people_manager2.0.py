@@ -139,6 +139,7 @@ def menu():
         print("12 - Find by city and min. age")
         print("13 - City statistics")
         print("14 - City average age")
+        print("15 - Advanced search")
         print("q - Quit")
         
         choice = input("Choose: ")
@@ -171,6 +172,8 @@ def menu():
             city_statistics()
         elif choice == "14":
             city_average_age()
+        elif choice == "15":
+            advanced_search()
         elif choice == "q":
             break
         else:
@@ -246,6 +249,19 @@ def city_average_age():
     for city, value in city_ages.items():
         average_age = value / city_counts[city]
         print(city, ":", round(average_age, 2))
+
+def advanced_search():
+    city = input("Enter city: ")
+    min_age = int(input("Enter minimum age: "))
+    found = False
+    
+    for person in people:
+        if person["city"] == city and person["age"] >= min_age:
+            print(person["name"], "-", person["age"], "-", person["city"])
+            found = True
+    
+    if not found:
+        print("No people found matching the criteria.")
 
 menu()
 
