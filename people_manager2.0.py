@@ -243,9 +243,10 @@ def city_average_age():
         city_ages[city] = city_ages[city] + age
         city_counts[city] = city_counts[city] + 1
   
-    for city in city_ages:
-        average_age = city_ages[city] / city_counts[city]
+    for city, value in city_ages.items():
+        average_age = value / city_counts[city]
         print(city, ":", round(average_age, 2))
+        
 menu()
 
 print("People Manager 2.0 - Git")
