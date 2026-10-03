@@ -13,5 +13,10 @@
         "name": "John",
         "age": 30,
         "city": "Kutaisi"
+    },
+    {
+        "name": "Georgi",
+        "age": 38,
+        "city": "Batumi"
     }
 ]
